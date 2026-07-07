@@ -83,13 +83,14 @@ My responsibilities include:
 
 ## Technologies Used
 
-* **Java** – Programming language used for writing automation code.
-* **Selenium WebDriver** – Framework used for browser-based UI automation.
-* **JUnit 5** – Testing framework used for organizing and executing automated tests.
-* **Maven** – Dependency management and build automation tool.
-* **Page Object Model (POM)** – Design pattern used for creating scalable automation architecture.
-* **Git / GitHub** – Version control and source code management.
-* **IntelliJ IDEA** – IDE used for development and debugging.
+| Technology | Purpose |
+|------------|---------|
+| Java | Programming language |
+| Selenium WebDriver | UI automation |
+| JUnit 5 | Test execution |
+| Maven | Build & dependency management |
+| Git | Version control |
+| IntelliJ IDEA | Development environment |
 
 ## Running the Tests
 
