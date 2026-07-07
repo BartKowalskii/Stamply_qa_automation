@@ -1,22 +1,22 @@
 package pages.CreatingCardSteps;
 
+import base.WizardActions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BasePage;
+import base.BasePage;
 
 import java.time.Duration;
 
-public class RegistrationPageStep extends BasePage {
+public class RegistrationPageStep  {
     //config
+    private BasePage base;
+    private WizardActions wizard;
 
     public RegistrationPageStep(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        this.actions = new Actions(driver);
+        this.base = new BasePage(driver);
+        this.wizard = new WizardActions(driver);
     }
     //locators
     By webTitleField = By.cssSelector("[data-testid='card-creator-input-web-title']");
@@ -30,22 +30,25 @@ public class RegistrationPageStep extends BasePage {
 
     //main
     public void addLogo(String logoJPG) {
-        driver.findElement(logoContainer).findElement(pictureInput).sendKeys(logoJPG);
+        base.driver.findElement(logoContainer).findElement(pictureInput).sendKeys(logoJPG);
     }
     public void webTitleInput(String webTitle) {
-        input(webTitleField, webTitle);
+        base.input(webTitleField, webTitle);
     }
     public void setSubtitle(String subtitle) {
-        input(subtitleField, subtitle);
+        base.input(subtitleField, subtitle);
     }
     public void accentColorInput(String accentColor) {
-        input(accentColorInputField, accentColor);
+        base.input(accentColorInputField, accentColor);
     }
 public void addBackground(String backgroundJPG) {
-        driver.findElement(backgroundContainer).findElement(pictureInput).sendKeys(backgroundJPG);
+        base.driver.findElement(backgroundContainer).findElement(pictureInput).sendKeys(backgroundJPG);
 }
 public void clickSaveImageButton() {
-        click(saveImageButton);
+        base.click(saveImageButton);
 }
+    public void continueStep() {
+        wizard.clickContinue();
+    }
 
 }

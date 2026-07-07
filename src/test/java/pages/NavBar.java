@@ -1,4 +1,6 @@
 package pages;
+import base.BasePage;
+import base.WizardActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-public class NavBar extends BasePage {
+public class NavBar  {
     //configuration
+    private BasePage base;
+    private WizardActions wizard;
     //locators
     By logo = By.xpath("//nav//a/img[@alt='Stamply']");
     By produkty = By.xpath("//nav//a[.//span[normalize-space()='Produkty']]");
@@ -27,31 +31,30 @@ public class NavBar extends BasePage {
     By aplikacjaMobilna = By.xpath("//nav//a[.//div[normalize-space(.)='Aplikacja mobilna']]");
 
     public NavBar(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        this.actions = new Actions(driver);
+        this.base = new BasePage(driver);
+        this.wizard = new WizardActions(driver);
     }
 
 
     public String getCurrentUrl() {
-        return driver.getCurrentUrl();
+        return base.driver.getCurrentUrl();
     }
     public boolean waitForUrlContains(String text) {
-        return wait.until(ExpectedConditions.urlContains(text));
+        return base.wait.until(ExpectedConditions.urlContains(text));
     }
     private WebElement find(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return base.wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
      private void hover(By locator) {
-        WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        actions.moveToElement(el).perform();
+        WebElement el = base.wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        base.actions.moveToElement(el).perform();
     }
 
 
 
     public void clickLogo() {
-        click(logo);
+        base.click(logo);
     }
 
     public void hoverProdukty() {
@@ -62,7 +65,7 @@ public class NavBar extends BasePage {
     }
 
     public void clickAppMobile() {
-        click(aplikacjaMobilna);
+        base.click(aplikacjaMobilna);
     }
 
 
@@ -80,15 +83,15 @@ public class NavBar extends BasePage {
 return find(zasobydrop).isDisplayed();
 }
     public void clickCennik() {
-        click(cennik);
+        base.click(cennik);
     }
 
     public void clickKontakt() {
-            click(kontakt);
+            base.click(kontakt);
         }
 
     public void clickRezerwuj() {
-      click(rezerwujDemo);
+      base.click(rezerwujDemo);
     }
     public boolean didRezerwujPopUpOpen() {
         return find(rezerwujDemoPopUp).isDisplayed();

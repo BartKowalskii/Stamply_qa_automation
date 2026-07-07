@@ -1,23 +1,30 @@
 package pages.CreatingCardSteps;
 
+import base.BasePage;
+import base.WizardActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BasePage;
 
 import java.time.Duration;
 import java.util.Map;
 
-public class ProgramTypeStep extends BaseStep {
+public class ProgramTypeStep {
     //config
-      public ProgramTypeStep(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        this.actions = new Actions(driver);
+
+    private BasePage base;
+    private WizardActions wizard;
+
+    public ProgramTypeStep(WebDriver driver) {
+        this.base = new BasePage(driver);
+        this.wizard = new WizardActions(driver);
     }
 
+
+    public void continueStep() {
+        wizard.clickContinue();
+    }
 
     //locators
     public enum Option {
@@ -33,7 +40,7 @@ public class ProgramTypeStep extends BaseStep {
 
     //main
     public void chooseStamp(Option option) {
-        click(options.get(option));
+        base.click(options.get(option));
     }
 
 

@@ -1,21 +1,21 @@
 package pages.CreatingCardSteps;
 
+import base.WizardActions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BasePage;
+import base.BasePage;
 
 import java.time.Duration;
 
-public class CardNameExpirationEconomicsStep extends BasePage {
+public class CardNameExpirationEconomicsStep {
     //config
+    private BasePage base;
+    private WizardActions wizard;
     public CardNameExpirationEconomicsStep(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        this.actions = new Actions(driver);
+        this.base = new BasePage(driver);
+        this.wizard = new WizardActions(driver);
     }
     //locators
     By cardNameField = By.cssSelector("[data-testid='card-creator-input-name']");
@@ -28,13 +28,13 @@ public class CardNameExpirationEconomicsStep extends BasePage {
 
     //main
     public void CardNameInput(String cardName) {
-        input(cardNameField, cardName);
+        base.input(cardNameField, cardName);
     }
     public void estimatedStampUnitInput(String estimatedSTampUnit) {
-        input(estimatedStampUnitField, estimatedSTampUnit);
+        base.input(estimatedStampUnitField, estimatedSTampUnit);
     }
     public void estimatedStampValueInput(String estimatedStampValue) {
-        input(estimatedStampValueField, estimatedStampValue);
+        base.input(estimatedStampValueField, estimatedStampValue);
     }
     /*
     public void estimatedOrderValuePerStampInput(String estimatedOrderValuePerStamp) {
@@ -42,11 +42,13 @@ public class CardNameExpirationEconomicsStep extends BasePage {
     }
     */
     public void expireAfterMonthsInput(String expireAfterMonths) {
-        input(expireAfterMonthsField, expireAfterMonths);
+        base.input(expireAfterMonthsField, expireAfterMonths);
     }
     public void clickNoExpirationCheckbox() {
-        click(noExpirationTimeCheckbox);
+        base.click(noExpirationTimeCheckbox);
     }
-
+    public void continueStep() {
+        wizard.clickContinue();
+    }
 
 }

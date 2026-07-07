@@ -1,5 +1,7 @@
 package pages;
 
+import base.BasePage;
+import base.WizardActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -8,13 +10,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class Login extends BasePage{
+public class Login  {
     //configuration
+    private BasePage base;
+    private WizardActions wizard;
 
     public Login(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        this.actions = new Actions(driver);
+        this.base = new BasePage(driver);
+        this.wizard = new WizardActions(driver);
     }
 
     //locators
@@ -25,55 +28,55 @@ public class Login extends BasePage{
 
     //configuration 2
     public  String source() {
-        return driver.getPageSource();
+        return base.driver.getPageSource();
     }
     public String getCurrentUrl() {
-        return driver.getCurrentUrl();
+        return base.driver.getCurrentUrl();
     }
     public void waitForUrlMatches(String text) {
-        wait.until(ExpectedConditions.urlToBe(text));
+        base.wait.until(ExpectedConditions.urlToBe(text));
     }
 
       public void clickEnter() {
-        driver.findElement(passwordField).sendKeys(Keys.ENTER);
+        base.driver.findElement(passwordField).sendKeys(Keys.ENTER);
     }
     public void waitForError() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'bg-light') and .//*[name()='svg']]")));
+        base.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'bg-light') and .//*[name()='svg']]")));
     }
     public String error() {
-         return driver.findElement(By.xpath("//div[contains(@class,'bg-light') and .//*[name()='svg']]")).getText();
+         return base.driver.findElement(By.xpath("//div[contains(@class,'bg-light') and .//*[name()='svg']]")).getText();
     }
     //main
     public void loginInput(String email, String password) {
-        input(emailField, email);
-    input(passwordField, password);
+        base.input(emailField, email);
+    base.input(passwordField, password);
     }
     public void clickSubmit() {
-        click(submit);
+        base.click(submit);
     }
     public boolean isLogInClickable() {
-        return driver.findElement(submit).isEnabled();
+        return base.driver.findElement(submit).isEnabled();
     }
     public boolean isValidEmail(String email) {
         return email != null &&
                 email.matches("[A-Za-z0-9+_.-]+@[A-Za-z0-9+_.-]");
     }
     public String getPasswordField() {
-      return  driver.findElement(passwordField).getAttribute("type");
+      return  base.driver.findElement(passwordField).getAttribute("type");
     }
     public void clickHideButton() {
-        click(hideButton);
+        base.click(hideButton);
     }
     public void clearFields() {
-     driver.findElement(emailField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
-        driver.findElement(emailField).sendKeys(Keys.DELETE);
-        driver.findElement(passwordField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
-        driver.findElement(passwordField).sendKeys(Keys.DELETE);
+     base.driver.findElement(emailField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        base.driver.findElement(emailField).sendKeys(Keys.DELETE);
+        base.driver.findElement(passwordField).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        base.driver.findElement(passwordField).sendKeys(Keys.DELETE);
     }
     public void clickLink(String xpath) {
-        click(By.xpath(xpath));
+        base.click(By.xpath(xpath));
     }
     public void waitForAppFullyLoaded(String xpath) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        base.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
 }

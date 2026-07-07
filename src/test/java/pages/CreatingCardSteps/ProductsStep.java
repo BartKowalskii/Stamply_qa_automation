@@ -1,22 +1,24 @@
 package pages.CreatingCardSteps;
 
+import base.WizardActions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BasePage;
+import base.BasePage;
 
 import java.time.Duration;
 import java.util.Map;
 
-public class ProductsStep extends BasePage {
+public class ProductsStep {
+
     //config
+    private BasePage base;
+    private WizardActions wizard;
+
     public ProductsStep(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        this.actions = new Actions(driver);
+        this.base = new BasePage(driver);
+        this.wizard = new WizardActions(driver);
     }
 
     //locators
@@ -41,23 +43,27 @@ public class ProductsStep extends BasePage {
                );
     //main
     public void setEstimatedRedemptionUnitField(String estimatedRedemptionUnit) {
-        input(estimatedRedemptionUnitField, estimatedRedemptionUnit);
+        base.input(estimatedRedemptionUnitField, estimatedRedemptionUnit);
     }
 
     public void setEstimatedRedemptionCurrencyField(String estimatedRedemptionCurrency) {
-        input(estimatedRedemptionCurrencyField, estimatedRedemptionCurrency);
+        base.input(estimatedRedemptionCurrencyField, estimatedRedemptionCurrency);
     }
 
     public void clickProduct(Product product) {
-        click(products.get(product));
+        base.click(products.get(product));
     }
 
     public void StampsNeededInput(ProductInputField productInput, String stampsNeeded) {
-        input(productInputs.get(productInput), stampsNeeded);
+        base.input(productInputs.get(productInput), stampsNeeded);
     }
 
     public void clickAddProduct() {
-        click(addProductButton);
+        base.click(addProductButton);
     }
+    public void continueStep() {
+        wizard.clickContinue();
+    }
+
 }
 

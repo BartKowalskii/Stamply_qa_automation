@@ -13,7 +13,7 @@ public class CreatingCardFlow {
 
     public void createValidCardStep1(ProgramTypeStep.Option option) {
         creatingCard.programTypeStep.chooseStamp(option);
-        creatingCard.clickContinue();
+        creatingCard.programTypeStep.continueStep();
 
     }
     public void createValidCardStep2( String cardName,
@@ -28,7 +28,7 @@ public class CreatingCardFlow {
             creatingCard.cardNameExpirationEconomicsStep.clickNoExpirationCheckbox();
             creatingCard.cardNameExpirationEconomicsStep.expireAfterMonthsInput(months);
         } else {
-            creatingCard.clickContinue();
+            creatingCard.cardNameExpirationEconomicsStep.continueStep();
         }
     }
     public void createValidCardStep3(String estimatedRedemptionUnit,
@@ -39,7 +39,7 @@ public class CreatingCardFlow {
         creatingCard.productsStep.setEstimatedRedemptionCurrencyField(estimatedRedemptionCurrency);
         creatingCard.productsStep.clickProduct(product);
         creatingCard.productsStep.StampsNeededInput(productInput, stampsNeeded);
-        creatingCard.clickContinue();
+        creatingCard.productsStep.continueStep();
     }
     public void createValidCardStep4( String logo,
                                       String webTitle,
@@ -53,13 +53,13 @@ public class CreatingCardFlow {
         creatingCard.registrationPageStep.accentColorInput(color);
         creatingCard.registrationPageStep.addBackground(background);
         creatingCard.registrationPageStep.clickSaveImageButton();
-        creatingCard.clickContinue();
+        creatingCard.registrationPageStep.continueStep();
     }
     public void createValidCardStep5() {
-        creatingCard.clickContinue();
+        creatingCard.designStep.continueStep();
     }
     public void createValidCardStep6() {
-        creatingCard.clickContinue();
+        creatingCard.walletEnrollmentRequirementsStep.continueStep();
         creatingCard.waitUntilCardCreated();
     }
 }
