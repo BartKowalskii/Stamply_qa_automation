@@ -1,5 +1,13 @@
 # Stamply Web Application UI Test Automation
 
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Selenium](https://img.shields.io/badge/Selenium-4-green)
+![JUnit 5](https://img.shields.io/badge/JUnit-5-red)
+![Maven](https://img.shields.io/badge/Maven-Build-blue)
+![POM](https://img.shields.io/badge/Architecture-Page%20Object%20Model-purple)
+
+## Overview
+
 This repository contains an automated UI testing project developed using **Java, Selenium WebDriver, JUnit 5, and Maven** for the **Stamply** web application.
 
 The project is a portfolio automation project created while collaborating with an independent developer working on the Stamply application. The purpose of this project is to build a maintainable automated regression test suite that validates important user flows and helps ensure application quality during continuous development.
