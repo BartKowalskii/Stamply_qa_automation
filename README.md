@@ -2,9 +2,10 @@
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Selenium](https://img.shields.io/badge/Selenium-4-green)
-![JUnit 5](https://img.shields.io/badge/JUnit-5-red)
+![JUnit5](https://img.shields.io/badge/JUnit-5-red)
 ![Maven](https://img.shields.io/badge/Maven-Build-blue)
-![POM](https://img.shields.io/badge/Architecture-Page%20Object%20Model-purple)
+![POM](https://img.shields.io/badge/Architecture-POM-purple)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
 ## Overview
 
