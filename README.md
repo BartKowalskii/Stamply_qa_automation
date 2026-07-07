@@ -11,13 +11,22 @@
 
 This repository contains an automated UI testing project developed using **Java, Selenium WebDriver, JUnit 5, and Maven** for the **Stamply** web application.
 
-The project is a portfolio automation project created while collaborating with an independent developer working on the Stamply application. The purpose of this project is to build a maintainable automated regression test suite that validates important user flows and helps ensure application quality during continuous development.
+This project was developed as part of a collaboration with an independent developer working on the Stamply web application. It serves both as a production-like automation project and as a demonstration of my QA automation skills. The purpose of this project is to build a maintainable automated regression test suite that validates important user flows and helps ensure application quality during continuous development.
 
 The automation framework follows the **Page Object Model (POM)** design pattern, separating test logic from page-specific implementation. This approach improves code readability, reduces duplication, and allows the framework to be extended as the application grows.
 
-Application under test:
+## Application Under Test
 
-**Stamply:** https://stamply.app
+**Stamply**  
+https://stamply.app
+
+## Project Highlights
+
+- ✔ 28 automated UI tests
+- ✔ Java + Selenium WebDriver
+- ✔ Page Object Model architecture
+- ✔ Production-like web application
+- ✔ Active collaboration with application developer
 
 ## Features
 
@@ -55,17 +64,28 @@ The framework layer contains reusable components responsible for common browser 
 
 ## Current Test Coverage
 
-The project currently contains **28 automated UI tests** covering important application functionality, including:
+✔ 28 automated UI tests
 
-* User login and authentication flows
-* Navigation between application sections
-* Verification of UI elements
-* Form interactions
-* Core business workflows
-* Positive and negative test scenarios
+Coverage includes:
+
+- Login & authentication
+- Navigation
+- UI validation
+- Form interactions
+- Core business workflows
+- Positive & negative scenarios
 
 The test suite is continuously expanded as new features are introduced into the application.
 
+## Planned Improvements
+
+- Cross-browser execution
+- GitHub Actions CI
+- Test reporting with Allure
+- Parallel execution
+- Data-driven testing
+
+  
 ## My Contribution
 
 I am responsible for the development and maintenance of the automation framework and automated test scenarios for the Stamply application.
@@ -97,7 +117,7 @@ My responsibilities include:
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/BartKowalskii/Stamply_qa_automation.git
 ```
 
 Navigate to the project folder:
