@@ -13,8 +13,6 @@ public class LoginTest extends BaseTest {
     //configuration
     Login login;
 
-    String testEmail = "bartstestuser@gmail.com";
-    String testPassword = "TestingUs3r!";
     String wrongEmail = "wrongemail@gmail.com";
     String wrongPassword = "Wrongpassword123!";
     String emptyField = "";
@@ -48,7 +46,7 @@ public class LoginTest extends BaseTest {
     //Tests
     @Test
     public void correctLogin() {
-        login.loginInput(testEmail, testPassword);
+        login.loginInput(getTestEmail(), getTestPassword());
         login.clickSubmit();
        login.waitForUrlMatches("https://my.stamply.app/");
         assertEquals("https://my.stamply.app/", login.getCurrentUrl());
@@ -56,7 +54,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void wrongPassword() {
-        login.loginInput(testEmail, wrongPassword);
+        login.loginInput(getTestEmail(), wrongPassword);
         login.clickSubmit();
         login.waitForError();
         assertEquals("https://my.stamply.app/auth/login", login.getCurrentUrl());
@@ -64,7 +62,7 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void wrongEmail() {
-        login.loginInput(wrongEmail, testPassword);
+        login.loginInput(wrongEmail, getTestPassword());
         login.clickSubmit();
         login.waitForError();
         assertEquals("https://my.stamply.app/auth/login", login.getCurrentUrl());
@@ -85,7 +83,7 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void emptyPassword() {
-        login.loginInput(testEmail, emptyField);
+        login.loginInput(getTestEmail(), emptyField);
         assertFalse(login.isLogInClickable());
     }
     @Test
@@ -111,7 +109,7 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void shouldAllowEmailWithUpperCase() {
-        login.loginInput("BartsTestUser@gmail.com", testPassword);
+        login.loginInput("BartsTestUser@gmail.com", getTestPassword());
         login.clickSubmit();
         login.waitForUrlMatches("https://my.stamply.app/");
         assertEquals("https://my.stamply.app/", login.getCurrentUrl());
@@ -122,7 +120,7 @@ public class LoginTest extends BaseTest {
     }
      @Test
     public void isHideButtonWorking() {
-        login.loginInput(testEmail, testPassword);
+        login.loginInput(getTestEmail(), getTestPassword());
         login.clickHideButton();
         assertEquals("text", login.getPasswordField());
         login.clickHideButton();
@@ -130,7 +128,7 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void isEnterSubmittingForm() {
-        login.loginInput(testEmail, testPassword);
+        login.loginInput(getTestEmail(), getTestPassword());
         login.clickEnter();
         login.waitForUrlMatches("https://my.stamply.app/");
         assertEquals("https://my.stamply.app/", login.getCurrentUrl());

@@ -1,6 +1,7 @@
 package base;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Set;
 
-public class BaseTest {
+public abstract class BaseTest {
     protected WebDriver driver;
 
     public void setup() {
@@ -61,11 +62,18 @@ public void handleNewWindow() {
                     ));
             accept.click();
         } catch (Exception ignored) {}
-        String testEmail = "bartstestuser@gmail.com";
-        String testPassword = "TestingUs3r!";
+        String testEmail = System.getenv("STAMPLY_EMAIL");
+        String testPassword = System.getenv("STAMPLY_PASSWORD");
         driver.findElement(By.xpath("//input[@name='email']")).sendKeys(testEmail);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(testPassword);
         driver.findElement(By.xpath("//form//button[normalize-space(.)='Log In']")).click();
+    }
+    protected String getTestEmail() {
+        return System.getenv("STAMPLY_EMAIL");
+    }
+
+    protected String getTestPassword() {
+        return System.getenv("STAMPLY_PASSWORD");
     }
     public void tearDown() {
         if (driver != null) {

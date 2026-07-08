@@ -43,7 +43,7 @@ public class CreatingCard {
    /* By deleteCardButton = By.xpath("//buton[@aria-label='Delete']");
     By confirmationDeletion = By.xpath("//button[normalize-space(.)='Yes, delete']");
     */
-   By createdCard = By.xpath("//div[@class='flex-1 font-semibold']/span[normalize-space(.)='Test1']");
+   By createdCard = By.xpath("//h2/span[normalize-space(.)='Your card is ready']");
 
     //main
 

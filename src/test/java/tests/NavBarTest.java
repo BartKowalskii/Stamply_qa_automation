@@ -62,7 +62,8 @@ public class NavBarTest extends BaseTest {
       @Test
               public void  testClickRezerwuj() {
         navbar.clickRezerwuj();
-        assertTrue(navbar.didRezerwujPopUpOpen());
+          handleNewWindow();
+          assertTrue(navbar.waitForUrlContains("https://calendly.com/dioxymeta/stamply-presentation"));
         }
 
 

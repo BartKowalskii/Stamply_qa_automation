@@ -63,7 +63,7 @@ creatingCardFlow.createValidCardStep4(
         );
 creatingCardFlow.createValidCardStep5();
 creatingCardFlow.createValidCardStep6();
-assertTrue(driver.findElement(By.xpath("//div[@class='flex-1 font-semibold']/span[normalize-space(.)='Test1']")).isDisplayed());
+assertTrue(driver.findElement(By.xpath("//h2/span[normalize-space(.)='Your card is ready']")).isDisplayed());
  // creatingCard.deleteCard();
     }
 }

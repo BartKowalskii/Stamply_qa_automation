@@ -21,7 +21,7 @@ public class NavBar  {
     By zasoby = By.xpath("//nav//a[.//span[normalize-space()='Zasoby']]");
     By cennik = By.xpath("//nav//a[.//span[normalize-space()='Cennik']]");
     By kontakt = By.xpath("//nav//a[.//span[normalize-space()='Kontakt']]");
-    By rezerwujDemo = By.xpath("//nav//button[normalize-space(.)='Zarezerwuj demo']");
+    By rezerwujDemo = By.xpath("//nav//a//div[normalize-space(.)='Zarezerwuj demo']");
 
     By produktydrop = By.xpath("//nav//*[contains(text(),'Kluczowe produkty')]");
     By rozwiazaniadrop = By.xpath("//nav//*[contains(text(),'Dopasowane do Twoich potrzeb')]");
