@@ -126,6 +126,11 @@ Navigate to the project folder:
 cd Stamply_qa_automation
 ```
 
+Before running the tests, configure the following environment variables:
+
+STAMPLY_EMAIL=your_test_email
+STAMPLY_PASSWORD=your_test_password
+
 Run the automated test suite:
 
 ```bash
