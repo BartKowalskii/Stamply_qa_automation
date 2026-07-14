@@ -41,10 +41,10 @@ public class Login  {
         base.driver.findElement(passwordField).sendKeys(Keys.ENTER);
     }
     public void waitForError() {
-        base.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'bg-light') and .//*[name()='svg']]")));
+        base.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='auth-login-error']")));
     }
     public String error() {
-         return base.driver.findElement(By.xpath("//div[contains(@class,'bg-light') and .//*[name()='svg']]")).getText();
+         return base.driver.findElement(By.cssSelector("[data-testid='auth-login-error']")).getText();
     }
     //main
     public void loginInput(String email, String password) {
