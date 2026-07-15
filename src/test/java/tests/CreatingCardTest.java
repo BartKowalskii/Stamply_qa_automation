@@ -12,6 +12,8 @@ import pages.CreatingCardSteps.ProductsStep;
 import pages.CreatingCardSteps.ProgramTypeStep;
 import pages.Login;
 
+import java.nio.file.Paths;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CreatingCardTest extends BaseTest {
@@ -26,11 +28,15 @@ public class CreatingCardTest extends BaseTest {
         creatingCard.waitForUrlMatches();
         driver.get("https://my.stamply.app/store/cards/create");
     }
-    String logo = "C:\\Users\\barte\\Downloads\\TestJPG1.jpg";
+    String logo = Paths.get(
+            "src/test/resources/images/TestJPG1.jpg"
+    ).toAbsolutePath().toString();
     String webtitle = "TestingTitle";
     String subtitle = "Testing Subtitle";
     String color = "#000000";
-    String background = "C:\\Users\\barte\\Downloads\\TestJPG2.jpg";
+    String background = Paths.get(
+            "src/test/resources/images/TestJPG2.jpg"
+    ).toAbsolutePath().toString();
     @AfterEach
     void cleanUp() {
         tearDown();

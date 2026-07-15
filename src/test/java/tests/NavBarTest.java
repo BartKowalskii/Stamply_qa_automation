@@ -36,6 +36,7 @@ public class NavBarTest extends BaseTest {
         public void testClickAplikacjeMobilne() {
         navbar.hoverProdukty();
         navbar.clickAppMobile();
+        navbar.waitForUrlContains("/products/stamply-app/");
         assertEquals("https://stamply.pl/products/stamply-app/", navbar.getCurrentUrl());
       }
 
@@ -63,7 +64,7 @@ public class NavBarTest extends BaseTest {
               public void  testClickRezerwuj() {
         navbar.clickRezerwuj();
           handleNewWindow();
-          assertTrue(navbar.waitForUrlContains("https://calendly.com/dioxymeta/stamply-presentation"));
+          assertTrue(navbar.waitForUrlContains("https://calendly.com/kowalskicodes/stamply-meeting"));
         }
 
 
