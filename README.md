@@ -112,31 +112,6 @@ My responsibilities include:
 | Git | Version control |
 | IntelliJ IDEA | Development environment |
 
-## Running the Tests
-
-Clone the repository:
-
-```bash
-git clone https://github.com/BartKowalskii/Stamply_qa_automation.git
-```
-
-Navigate to the project folder:
-
-```bash
-cd Stamply_qa_automation
-```
-
-Before running the tests, configure the following environment variables:
-
-STAMPLY_EMAIL=your_test_email
-STAMPLY_PASSWORD=your_test_password
-
-Run the automated test suite:
-
-```bash
-mvn test
-```
-
 ## Project Status
 
 🚧 **Work in Progress**
@@ -152,8 +127,3 @@ This repository demonstrates practical experience with:
 * Applying Page Object Model architecture
 * Writing automated regression tests for a real web application
 * Working with an evolving production-like environment
-
-## Contact
-
-GitHub:
-https://github.com/BartKowalskii
