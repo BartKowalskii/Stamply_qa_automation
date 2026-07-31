@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.devtools.latest.animation.model.ViewOrScrollTimeline;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -34,5 +35,10 @@ public  class BasePage {
         element.sendKeys(Keys.DELETE);
         element.sendKeys(text);
     }
-
+public void goToPage(String URL) {
+    driver.get(URL);
+}
+public void waitForAnElement(String xpath) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+}
 }

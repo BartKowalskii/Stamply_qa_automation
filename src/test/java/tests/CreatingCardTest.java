@@ -14,6 +14,7 @@ import pages.Login;
 
 import java.nio.file.Paths;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CreatingCardTest extends BaseTest {
@@ -70,6 +71,7 @@ creatingCardFlow.createValidCardStep4(
 creatingCardFlow.createValidCardStep5();
 creatingCardFlow.createValidCardStep6();
 assertTrue(driver.findElement(By.xpath("//h2/span[normalize-space(.)='Your card is ready']")).isDisplayed());
- // creatingCard.deleteCard();
+ creatingCardFlow.deleteCard();
+ assertEquals("0 Results", driver.findElement(By.xpath("//div[contains(@class, 'text-dark') and contains(@class, 'text-sm') and contains(normalize-space(.), 'Results') and translate(substring-before(normalize-space(.), 'Results'), '0123456789 ', '') = '']")).getText());
     }
 }

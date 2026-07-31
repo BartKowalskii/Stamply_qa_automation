@@ -62,4 +62,11 @@ public class CreatingCardFlow {
         creatingCard.walletEnrollmentRequirementsStep.continueStep();
         creatingCard.waitUntilCardCreated();
     }
+    public void deleteCard() {
+        creatingCard.goBackToCardsPage();
+        creatingCard.deleteCard();
+        creatingCard.waitForDeletion();
+    }
+
+
 }
